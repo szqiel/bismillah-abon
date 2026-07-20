@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo_Narrow, Hanken_Grotesk } from "next/font/google";
+import { Archivo_Narrow, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { TopNavBar } from "@/components/ui/TopNavBar";
 import { Footer } from "@/components/ui/Footer";
@@ -10,8 +10,13 @@ const archivoNarrow = Archivo_Narrow({
   subsets: ["latin"],
 });
 
-const hankenGrotesk = Hanken_Grotesk({
-  variable: "--font-hanken-grotesk",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta-sans",
   subsets: ["latin"],
 });
 
@@ -34,7 +39,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${archivoNarrow.variable} ${hankenGrotesk.variable} antialiased min-h-screen flex flex-col bg-background text-on-surface`}
+        className={`${archivoNarrow.variable} ${jetbrainsMono.variable} ${plusJakartaSans.variable} antialiased min-h-screen flex flex-col bg-background text-on-surface`}
       >
         <TopNavBar />
         <main className="flex-grow">{children}</main>

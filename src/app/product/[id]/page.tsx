@@ -10,59 +10,136 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
   if (!item) {
     notFound();
   }
+  
+  const isAvailable = item.available;
+
 
   return (
-    <div className="px-margin-desktop py-xl bg-surface min-h-screen">
-      <Link href="/catalog" className="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors flex items-center gap-xs mb-lg uppercase">
-        <span className="material-symbols-outlined text-[16px]">arrow_back</span> Back to Catalog
-      </Link>
+    <div className="bg-surface-container-lowest min-h-screen text-on-surface flex flex-col">
+      <div className="max-w-7xl mx-auto px-margin-page py-8 flex-grow w-full">
+        
+        {/* Back Navigation */}
+        <Link href="/catalog" className="font-category-label text-sm font-bold text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-2 mb-8 uppercase w-fit">
+          <span className="material-symbols-outlined text-[20px]">arrow_back</span>
+        </Link>
 
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-xl">
-        <div className="md:col-span-7 h-[400px] md:h-[600px] hard-border bg-surface-bright p-xl flex items-center justify-center relative">
-           <img 
-              src={item.image} 
-              alt={item.name} 
-              className="w-full h-full object-contain mix-blend-multiply" 
-            />
-            <div className="absolute top-0 right-0 spec-tag-bg px-sm py-xs border-b-2 border-l-2 border-on-tertiary-fixed">
-              <span className="font-price-tag text-[16px] tracking-wider">AVAILABLE</span>
-            </div>
-        </div>
-
-        <div className="md:col-span-5 flex flex-col">
-          <div className="inline-flex items-center gap-2 bg-on-tertiary-fixed text-surface-bright px-sm py-xs w-fit mb-sm">
-            <span className="font-label-caps text-[10px] tracking-widest uppercase">{item.category}</span>
-          </div>
-          <h1 className="font-display-xl text-[48px] md:text-display-lg uppercase leading-none text-on-surface mb-md">
-            {item.name}
-          </h1>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
           
-          <div className="flex gap-lg border-b-2 border-on-tertiary-fixed pb-md mb-md">
-            <div className="flex flex-col">
-              <span className="font-label-caps text-[10px] text-on-surface-variant uppercase mb-xs">12-Hour Rate</span>
-              <span className="font-price-tag text-[24px]">Rp {(item.price12h / 1000).toLocaleString('id-ID')}K</span>
+          {/* Left: Image Gallery */}
+          <div className="lg:col-span-7 flex flex-col gap-4">
+            
+            {/* Main Big Image */}
+            <div className="bg-surface-container-low border border-outline-variant/30 rounded-xl p-8 relative flex items-center justify-center aspect-[4/3] md:aspect-[16/10] overflow-hidden">
+              <img 
+                src={item.image} 
+                alt={item.name} 
+                className="w-full h-full object-contain drop-shadow-2xl" 
+              />
+              
+
             </div>
-            <div className="flex flex-col">
-              <span className="font-label-caps text-[10px] text-on-surface-variant uppercase mb-xs">24-Hour Rate</span>
-              <span className="font-price-tag text-[24px] text-primary">Rp {(item.price24h / 1000).toLocaleString('id-ID')}K</span>
+
+            {/* Thumbnails Row */}
+            <div className="grid grid-cols-4 gap-4">
+              <div className="bg-surface-container border border-primary rounded-lg aspect-[4/3] flex items-center justify-center p-2 overflow-hidden cursor-pointer opacity-100">
+                <img src={item.image} className="w-full h-full object-contain" alt="Thumb 1"/>
+              </div>
+              <div className="bg-surface-container-low border border-outline-variant/30 rounded-lg aspect-[4/3] flex items-center justify-center p-2 overflow-hidden cursor-pointer opacity-60 hover:opacity-100 transition-opacity">
+                <img src={item.image} className="w-full h-full object-contain" alt="Thumb 2"/>
+              </div>
+              <div className="bg-surface-container-low border border-outline-variant/30 rounded-lg aspect-[4/3] flex items-center justify-center p-2 overflow-hidden cursor-pointer opacity-60 hover:opacity-100 transition-opacity">
+                <img src={item.image} className="w-full h-full object-contain" alt="Thumb 3"/>
+              </div>
+              <div className="bg-surface-container-low border border-outline-variant/30 rounded-lg aspect-[4/3] flex items-center justify-center p-2 overflow-hidden cursor-pointer opacity-60 hover:opacity-100 transition-opacity">
+                <img src={item.image} className="w-full h-full object-contain" alt="Thumb 4"/>
+              </div>
             </div>
+
           </div>
 
-          <p className="font-body-lg text-body-lg text-on-surface-variant mb-md">
-            {item.description}
-          </p>
+          {/* Right: Info & Booking */}
+          <div className="lg:col-span-5 flex flex-col">
+            
+            <h1 className="font-display-xl text-[40px] md:text-[48px] uppercase font-bold text-on-surface leading-none tracking-tight">
+              {item.name}
+            </h1>
+            <p className="font-body-md text-[14px] text-on-surface-variant mt-2">
+              {item.category === "Camera" ? "Full-Frame Mirrorless Hybrid Camera" : `${item.category} Professional Equipment`}
+            </p>
+            
+            {/* Price Box */}
+            <div className="mt-6 border border-primary/40 bg-primary/10 rounded-xl p-4 flex items-center justify-center gap-6">
+              <div className="flex items-baseline gap-1">
+                <span className="font-price-chip text-[12px] text-primary font-bold">Rp</span>
+                <span className="font-price-chip text-[28px] font-bold text-primary">{(item.price12h / 1000).toLocaleString('id-ID')}.000</span>
+                <span className="font-category-label text-[12px] text-primary/80 ml-1">/ 12H</span>
+              </div>
+              <div className="w-[1px] h-8 bg-primary/30"></div>
+              <div className="flex items-baseline gap-1">
+                <span className="font-price-chip text-[12px] text-on-surface font-bold">Rp</span>
+                <span className="font-price-chip text-[28px] font-bold text-on-surface">{(item.price24h / 1000).toLocaleString('id-ID')}.000</span>
+                <span className="font-category-label text-[12px] text-on-surface-variant ml-1">/ 24H</span>
+              </div>
+            </div>
 
-          <div className="flex flex-wrap gap-xs mb-xl">
-            {item.specs.map((spec, i) => (
-              <span key={i} className="px-3 py-2 hard-border font-label-caps text-[12px] uppercase bg-surface-container">
-                {spec}
-              </span>
-            ))}
+            {/* Tech Specs / Features Box */}
+            <div className="mt-6 border border-outline-variant/30 bg-surface-container-low rounded-xl p-6">
+              <div className="flex items-center gap-2 mb-6 text-on-surface">
+                <span className="material-symbols-outlined text-primary text-[20px]" style={{fontVariationSettings: "'FILL' 1"}}>
+                  {item.category === 'Bundle' ? 'inventory_2' : 'memory'}
+                </span>
+                <h3 className="font-category-label font-bold text-[18px]">
+                  {item.category === 'Bundle' ? 'Included Items' : 'Key Features'}
+                </h3>
+              </div>
+              
+              <div className="flex flex-col gap-3">
+                {item.specs.map((spec, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <span className="material-symbols-outlined text-primary text-[18px] mt-0.5" style={{fontVariationSettings: "'FILL' 1"}}>check_circle</span>
+                    <span className="font-price-chip text-[14px] text-on-surface font-bold leading-snug flex-1">
+                      {spec}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Booking Form (Calendar & Buttons) */}
+            <BookingForm item={item} />
+
           </div>
-
-          <BookingForm item={item} />
         </div>
       </div>
+
+      {/* Detail Produk Section */}
+      <div className="bg-surface-container-low border-t border-outline-variant/20 py-16 mt-auto">
+        <div className="max-w-7xl mx-auto px-margin-page grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
+          <div className="flex flex-col">
+            <h2 className="font-display-xl text-[32px] uppercase font-bold text-on-surface mb-6 border-b border-outline-variant/30 pb-4">
+              DETAIL PRODUK
+            </h2>
+            <p className="font-body-md text-[15px] leading-relaxed text-on-surface-variant mb-6">
+              {item.description}
+            </p>
+            <p className="font-body-md text-[15px] leading-relaxed text-on-surface-variant">
+              Sistem autofokus mewarisi teknologi mutakhir, menampilkan pelacakan real-time bahkan saat merekam video. Prosesor yang responsif memastikan operasi tanpa lag, krusial untuk menangkap momen tak terduga dalam berbagai skenario produksi.
+            </p>
+          </div>
+          
+          <div className="flex flex-col pt-2 lg:pt-16">
+            <p className="font-body-md text-[15px] leading-relaxed text-on-surface-variant mb-6">
+              Bagi para profesional, alat ini adalah powerhouse sejati. Menawarkan resolusi luar biasa dan reproduksi warna yang menakjubkan, menjadikannya pilihan ideal untuk komersial dan dokumenter tanpa perlu color grading yang berat.
+            </p>
+            <ul className="font-body-md text-[15px] leading-relaxed text-on-surface-variant list-disc list-outside ml-5 space-y-3">
+              <li>Layar fleksibel untuk berbagai sudut perekaman yang dinamis.</li>
+              <li>Konektivitas canggih dengan kecepatan tinggi untuk alur kerja profesional.</li>
+              <li>Desain bodi tahan debu dan kelembapan untuk kondisi lapangan yang menantang.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 }

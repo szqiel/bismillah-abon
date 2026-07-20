@@ -1,7 +1,7 @@
 export interface GearItem {
   id: string;
   name: string;
-  category: "Camera" | "Lens" | "Lighting" | "Audio" | "Support";
+  category: "Camera" | "Lens" | "Lighting" | "Audio" | "Support" | "Bundle";
   price12h: number;
   price24h: number;
   image: string;
@@ -75,6 +75,28 @@ export const inventory: GearItem[] = [
     image: "https://images.unsplash.com/photo-1596700508534-7a544f128e93?q=80&w=800&auto=format&fit=crop",
     specs: ["200Ws", "TTL/HSS"],
     description: "Compact and powerful pocket flash.",
+    available: true,
+  },
+  {
+    id: "bundle-essential-wedding",
+    name: "The Essential Wedding Kit",
+    category: "Bundle",
+    price12h: 380000,
+    price24h: 500000,
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAL6GsJ4OJLkuBpZ0z9e_Q_Ukm0qcMKMK21irkAKScXFTxvBmwx6SOIoWzOhAYLl5P5MdnD3OtVExlz3WUiF_teI5-rUFyle8HyW5WxfgXs2SNdpnIoC0rY-IgbkfC3BR-MzHX5H-j9YDcl_ybbUDqNX-fkhn1Vtt5GWYSwbmi6WkWm1IrHXBZKJ4G_V-Y5NHPv2wd5KxvZJX0bT33Z1-gYIGGjVNhkJW8i6uchI-f7dqhnus-eZVpp",
+    specs: ["Sony A7 III Body", "Tamron 28-75mm f/2.8", "2x NP-FZ100 Batteries", "SanDisk 64GB Extreme Pro"],
+    description: "Pre-configured kit for typical shoot scenarios. Save up to 15%.",
+    available: true,
+  },
+  {
+    id: "bundle-basic-lighting",
+    name: "Basic Studio Lighting",
+    category: "Bundle",
+    price12h: 160000,
+    price24h: 220000,
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDNLooZazDlroYQR3pJhLx2nPA_R5PoYWIvPJpB9_7RJg62FxtZHQSg-rbivBB7pSdwc9FqAE27Xg_CruHfEiryPKMu4860B9i5AfFxb51dUk-xqRB9ySzgTVIT8Ty3BEXJFJMx2cxpx_6qGw0v9DyiU04NRfBT_rTD51bZ6ZNHK5C7TRnovP28oDcTxRmMJpGappGInTUx45Q2Vt2XJfcStfA2Sw5UrjeUWzkkD8JJ5C1CWuoukP7W",
+    specs: ["2x Godox SL60W Video Light", "2x Rectangular Softbox 60x90", "2x Light Stand Takara", "Kabel Roll 10m"],
+    description: "Pre-configured kit for typical shoot scenarios. Save up to 20%.",
     available: true,
   }
 ];
