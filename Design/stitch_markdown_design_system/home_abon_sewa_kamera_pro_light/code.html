@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Abon Sewa Kamera - High-End Rental</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#eeeeee",
+                        "primary-fixed": "#ceebc4",
+                        "outline-variant": "#c3c8be",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "on-primary-fixed": "#0a2009",
+                        "on-tertiary-fixed": "#171d16",
+                        "secondary-fixed": "#d3e9c8",
+                        "on-tertiary-container": "#ebf1e5",
+                        "on-surface-variant": "#434840",
+                        "on-error": "#ffffff",
+                        "surface": "#f9f9f9",
+                        "secondary-fixed-dim": "#b8cdad",
+                        "on-secondary-fixed": "#0f1f0b",
+                        "tertiary": "#4f564d",
+                        "surface-container-high": "#e8e8e8",
+                        "primary-fixed-dim": "#b3ceaa",
+                        "primary": "#425a3d",
+                        "on-primary-container": "#dbf7d1",
+                        "surface-tint": "#4c6547",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f3f3f3",
+                        "tertiary-container": "#686e65",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1a1c1c",
+                        "on-tertiary-fixed-variant": "#424940",
+                        "on-background": "#1a1c1c",
+                        "surface-variant": "#e2e2e2",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#f1f1f1",
+                        "inverse-surface": "#2f3131",
+                        "secondary": "#51644a",
+                        "error-container": "#ffdad6",
+                        "outline": "#747970",
+                        "inverse-primary": "#b3ceaa",
+                        "tertiary-fixed-dim": "#c2c8bd",
+                        "primary-container": "#5a7354",
+                        "background": "#f9f9f9",
+                        "on-secondary-fixed-variant": "#394c33",
+                        "surface-dim": "#dadada",
+                        "secondary-container": "#d3e9c8",
+                        "on-primary-fixed-variant": "#354d31",
+                        "tertiary-fixed": "#dee4d9",
+                        "on-secondary-container": "#576a4f",
+                        "surface-container-highest": "#e2e2e2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "xl": "80px",
+                        "margin-mobile": "16px",
+                        "base": "8px",
+                        "gutter": "20px",
+                        "lg": "48px",
+                        "md": "24px",
+                        "margin-desktop": "64px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "price-tag": ["Archivo Narrow"],
+                        "display-lg": ["Archivo Narrow"],
+                        "headline-lg-mobile": ["Archivo Narrow"],
+                        "label-caps": ["Hanken Grotesk"],
+                        "headline-lg": ["Archivo Narrow"],
+                        "body-md": ["Hanken Grotesk"],
+                        "display-xl": ["Archivo Narrow"],
+                        "body-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "price-tag": ["20px", { "lineHeight": "20px", "fontWeight": "700" }],
+                        "display-lg": ["64px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "32px", "fontWeight": "800" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-xl": ["84px", { "lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "900" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Hanken Grotesk', sans-serif; }
+        .font-archivo { font-family: 'Archivo Narrow', sans-serif; }
+        .grid-technical {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .grid-technical { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        .hard-border { border: 2px solid #171d16; }
+        .spec-tag-bg { background-color: #5a7354; color: #ffffff; }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col">
+<!-- TopNavBar (Shared Component) -->
+<nav class="w-full sticky top-0 z-50 flex justify-between items-center px-margin-desktop py-base bg-surface border-b-2 border-on-tertiary-fixed transition-all duration-300">
+<div class="font-display-lg text-headline-lg-mobile tracking-tighter text-on-surface md:font-display-lg text-[24px] md:text-[32px] font-black uppercase">
+            ABON SEWA KAMERA
+        </div>
+<div class="hidden md:flex gap-md items-center">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-caps text-label-caps uppercase cursor-pointer active:opacity-80 transition-colors duration-200" href="#">Kamera</a>
+<a class="text-on-surface-variant font-medium hover:text-primary font-label-caps text-label-caps uppercase cursor-pointer active:opacity-80 transition-colors duration-200" href="#">Lensa</a>
+<a class="text-on-surface-variant font-medium hover:text-primary font-label-caps text-label-caps uppercase cursor-pointer active:opacity-80 transition-colors duration-200" href="#">Lighting</a>
+<a class="text-on-surface-variant font-medium hover:text-primary font-label-caps text-label-caps uppercase cursor-pointer active:opacity-80 transition-colors duration-200" href="#">Audio</a>
+<a class="text-on-surface-variant font-medium hover:text-primary font-label-caps text-label-caps uppercase cursor-pointer active:opacity-80 transition-colors duration-200" href="#">Support</a>
+</div>
+<div class="flex items-center gap-sm">
+<button class="bg-on-tertiary-fixed text-surface-bright px-md py-sm font-label-caps text-label-caps uppercase hover:bg-primary-container transition-colors duration-200 flex items-center gap-xs">
+<span>Booking via WhatsApp</span>
+</button>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="px-margin-desktop py-xl md:py-[120px] relative border-b-2 border-on-tertiary-fixed bg-surface-container-low overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#171d16 1px, transparent 1px); background-size: 20px 20px;"></div>
+<div class="grid-technical relative z-10 items-center">
+<div class="col-span-2 md:col-span-8 flex flex-col gap-md">
+<div class="inline-flex items-center gap-2 spec-tag-bg px-sm py-xs w-fit">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">videocam</span>
+<span class="font-label-caps text-label-caps tracking-widest uppercase">Premium Cinema Line</span>
+</div>
+<h1 class="font-display-xl text-display-xl uppercase leading-none md:pr-xl text-on-surface">
+                        Professional Gear.<br/>Zero Compromise.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-sm">
+                        High-end technical gear rental for professional cinematographers and photographers. Strict maintenance, reliable service, and industry-standard equipment ready for your next production.
+                    </p>
+<div class="flex gap-sm mt-md">
+<button class="bg-on-tertiary-fixed text-surface-bright px-lg py-sm font-label-caps text-label-caps uppercase hover:bg-primary-container transition-colors duration-200">
+                            Explore Catalog
+                        </button>
+</div>
+</div>
+<div class="col-span-2 md:col-span-4 mt-lg md:mt-0 relative h-[400px] md:h-[600px] hard-border bg-surface-bright">
+<img class="w-full h-full object-cover p-sm grayscale contrast-125 mix-blend-multiply" data-alt="A highly detailed, professional studio shot of a RED Komodo cinema camera rigged with a premium cine lens and matte box. The camera sits on a technical, grid-patterned surface. Lighting is dramatic and high-contrast, emphasizing the industrial, technical nature of the gear against a clean, light-mode background with forest green accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdw00jrv_umvTMRAmUBqns60DcUykogDCyOrg91z5D6f7ziVkupT3OIt1upLGVFW6NpCH43dhLj2dbkYZAmQblIwz1Kg5zrKWVa9oUwLa67aU2ZTQC0PXOYcDoxHlSJ43PTbpNYqZKSD5eQUO6hwdnS76-ogqcTEYIQmh0rkybR4Xu1K5r4fswUKY8uEvKfQEoFyjB8ojv8LsepN4dTbDKww_iFCh9Q8HAGS1iB9-dMhm-chExlK2F"/>
+<div class="absolute top-0 right-0 spec-tag-bg px-sm py-xs border-b-2 border-l-2 border-on-tertiary-fixed">
+<span class="font-price-tag text-price-tag tracking-wider">AVAILABLE</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Top Tier Equipment (Bento Grid) -->
+<section class="px-margin-desktop py-xl bg-surface">
+<div class="flex justify-between items-end mb-lg border-b-2 border-on-tertiary-fixed pb-sm">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase">Top Tier Equipment</h2>
+<a class="font-label-caps text-label-caps text-primary hover:text-on-tertiary-fixed transition-colors flex items-center gap-xs" href="#">
+                    View All <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid-technical">
+<!-- Card 1 -->
+<div class="col-span-2 md:col-span-4 flex flex-col hard-border bg-surface-container-low group relative hover:bg-surface transition-colors">
+<div class="absolute top-0 left-0 w-full flex justify-between items-start z-10 p-0">
+<div class="spec-tag-bg px-sm py-sm border-r-2 border-b-2 border-on-tertiary-fixed flex flex-col">
+<span class="font-label-caps text-[10px] text-surface-container opacity-80 uppercase leading-none">Per Day</span>
+<span class="font-price-tag text-price-tag tracking-widest mt-1">IDR 1.5M</span>
+</div>
+</div>
+<div class="h-[250px] border-b-2 border-on-tertiary-fixed relative overflow-hidden bg-surface-bright p-xl flex items-center justify-center">
+<img class="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500 scale-95 group-hover:scale-100" data-alt="A clean, isolated product shot of an ARRI Alexa Mini LF camera body. The lighting is pristine and technical, highlighting the industrial design and buttons. The background is a very light grey, fitting a modern, minimal high-end equipment aesthetic with sharp contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLDh1yv3wLXBOrkea_og-DjlVCoLSFt8JpM0vPasQL7vNYSPA8y18IZZKvRabxALP-VmnE558ZFm_t54D9ljDZoy0iAe3Z0cmcl_LsQ-NM3R1ic7nmtp85_p7hIWv0n4900DKyfBKmkgybNkY_5ekAUp51ykB7MIFj9h5zEx1XTAwD4JEhIndnrkFx0bLhKIkk6K8fQs1XxcRja4xUGR5m7nFxkOYbHhgBmz-HOHBkx0U0aLECLbs9"/>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<h3 class="font-headline-lg text-[24px] uppercase leading-tight mb-sm">ARRI Alexa Mini</h3>
+<div class="flex flex-wrap gap-xs mt-auto">
+<span class="px-2 py-1 border border-on-tertiary-fixed font-label-caps text-[10px] uppercase bg-surface-bright">4.5K ARRIRAW</span>
+<span class="px-2 py-1 border border-on-tertiary-fixed font-label-caps text-[10px] uppercase bg-surface-bright">ProRes 4444 XQ</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="col-span-2 md:col-span-4 flex flex-col hard-border bg-surface-container-low group relative hover:bg-surface transition-colors">
+<div class="absolute top-0 left-0 w-full flex justify-between items-start z-10 p-0">
+<div class="spec-tag-bg px-sm py-sm border-r-2 border-b-2 border-on-tertiary-fixed flex flex-col">
+<span class="font-label-caps text-[10px] text-surface-container opacity-80 uppercase leading-none">Per Day</span>
+<span class="font-price-tag text-price-tag tracking-widest mt-1">IDR 800K</span>
+</div>
+</div>
+<div class="h-[250px] border-b-2 border-on-tertiary-fixed relative overflow-hidden bg-surface-bright p-xl flex items-center justify-center">
+<img class="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500 scale-95 group-hover:scale-100" data-alt="A pristine, technical product shot of a RED Komodo 6K cinema camera, angled slightly to show the top screen and side controls. The lighting is clinical and sharp against a minimal white background, emphasizing the camera's compact, robust build suited for professional rigging." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQlYJafOktfF4msLqdXCYpZoT7Jm29nuoL2Bbip55fXbSZlQipvnLQ1AEIhGX8GcDK9Hyv866JERWKV8suzOjCJkO46Ftv1FZ90lDGi_9yr6fxRmvwzubegsPAfYDgA38hwyVcW1GfBTztI6opCnmG9WmeUnbUFx-hC2y7zmYv9wCVXhtu6hgwaYU39421RKItLECIE7zd9Ph7flBIIf2izhrmkspxDZmKMyvPpSVuGm72eYeqV0YW"/>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<h3 class="font-headline-lg text-[24px] uppercase leading-tight mb-sm">RED Komodo 6K</h3>
+<div class="flex flex-wrap gap-xs mt-auto">
+<span class="px-2 py-1 border border-on-tertiary-fixed font-label-caps text-[10px] uppercase bg-surface-bright">6K Global Shutter</span>
+<span class="px-2 py-1 border border-on-tertiary-fixed font-label-caps text-[10px] uppercase bg-surface-bright">REDCODE RAW</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="col-span-2 md:col-span-4 flex flex-col hard-border bg-surface-container-low group relative hover:bg-surface transition-colors">
+<div class="absolute top-0 left-0 w-full flex justify-between items-start z-10 p-0">
+<div class="spec-tag-bg px-sm py-sm border-r-2 border-b-2 border-on-tertiary-fixed flex flex-col">
+<span class="font-label-caps text-[10px] text-surface-container opacity-80 uppercase leading-none">Per Day</span>
+<span class="font-price-tag text-price-tag tracking-widest mt-1">IDR 600K</span>
+</div>
+</div>
+<div class="h-[250px] border-b-2 border-on-tertiary-fixed relative overflow-hidden bg-surface-bright p-xl flex items-center justify-center">
+<img class="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500 scale-95 group-hover:scale-100" data-alt="A sharp, isolated image of a Sony FX6 cinema line camera. The gear looks tactical and professional, shot with high-key lighting on a very light grey surface. The focus is incredibly sharp on the lens mount and ND filter dial, fitting a technical equipment catalog aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdaKUtpAPxKY0Qav2aDdbwoet57IjiTCoyi6m3zlq4BC4EHgf7o6ocSnhI40_XV2pOaKYADX0CUBOOOht1BT3wOq5C0tuqqkIkQwY5-oSyVIlK_6LaNwtjfq2UraaIJV4146PadRZge93QEeZXW--jpAxglTrAJGhqMGrIG4NiHdZ5P9ToK7Ge_lO0ovqrYWyDznkB0-CRPmaGxQHp7h3gIUJdIEbWJ3brtGrrcR228NYAIt5qtXk8"/>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<h3 class="font-headline-lg text-[24px] uppercase leading-tight mb-sm">Sony FX6</h3>
+<div class="flex flex-wrap gap-xs mt-auto">
+<span class="px-2 py-1 border border-on-tertiary-fixed font-label-caps text-[10px] uppercase bg-surface-bright">Full-Frame</span>
+<span class="px-2 py-1 border border-on-tertiary-fixed font-label-caps text-[10px] uppercase bg-surface-bright">4K 120p 10-bit</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full mt-xl grid grid-cols-1 gap-gutter px-margin-desktop py-xl bg-on-tertiary-fixed text-surface-bright border-t-2 border-on-tertiary-fixed-variant md:grid-cols-12">
+<div class="md:col-span-6 flex flex-col justify-between h-full">
+<div class="font-display-xl text-[48px] md:text-display-lg text-surface-bright uppercase leading-none mb-lg md:mb-0">
+                ABON SEWA<br/>KAMERA
+            </div>
+<div class="font-label-caps text-label-caps text-surface-variant uppercase mt-auto">
+                © 2024 ABON SEWA KAMERA SEMARANG. TECHNICAL GEAR RENTAL.
+            </div>
+</div>
+<div class="md:col-span-6 flex flex-col md:items-end justify-between">
+<div class="flex flex-col gap-sm md:text-right">
+<a class="font-label-caps text-label-caps text-surface-variant hover:text-primary-fixed transition-colors uppercase" href="#">Instagram</a>
+<a class="font-label-caps text-label-caps text-surface-variant hover:text-primary-fixed transition-colors uppercase" href="#">WhatsApp</a>
+<a class="font-label-caps text-label-caps text-surface-variant hover:text-primary-fixed transition-colors uppercase" href="#">Location</a>
+<a class="font-label-caps text-label-caps text-surface-variant hover:text-primary-fixed transition-colors uppercase" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</body></html>

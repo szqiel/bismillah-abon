@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact &amp; Location - ABON SEWA KAMERA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#eeeeee",
+                        "primary-fixed": "#ceebc4",
+                        "outline-variant": "#c3c8be",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "on-primary-fixed": "#0a2009",
+                        "on-tertiary-fixed": "#171d16",
+                        "secondary-fixed": "#d3e9c8",
+                        "on-tertiary-container": "#ebf1e5",
+                        "on-surface-variant": "#434840",
+                        "on-error": "#ffffff",
+                        "surface": "#f9f9f9",
+                        "secondary-fixed-dim": "#b8cdad",
+                        "on-secondary-fixed": "#0f1f0b",
+                        "tertiary": "#4f564d",
+                        "surface-container-high": "#e8e8e8",
+                        "primary-fixed-dim": "#b3ceaa",
+                        "primary": "#425a3d",
+                        "on-primary-container": "#dbf7d1",
+                        "surface-tint": "#4c6547",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f3f3f3",
+                        "tertiary-container": "#686e65",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1a1c1c",
+                        "on-tertiary-fixed-variant": "#424940",
+                        "on-background": "#1a1c1c",
+                        "surface-variant": "#e2e2e2",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#f1f1f1",
+                        "inverse-surface": "#2f3131",
+                        "secondary": "#51644a",
+                        "error-container": "#ffdad6",
+                        "outline": "#747970",
+                        "inverse-primary": "#b3ceaa",
+                        "tertiary-fixed-dim": "#c2c8bd",
+                        "primary-container": "#5a7354",
+                        "background": "#f9f9f9",
+                        "on-secondary-fixed-variant": "#394c33",
+                        "surface-dim": "#dadada",
+                        "secondary-container": "#d3e9c8",
+                        "on-primary-fixed-variant": "#354d31",
+                        "tertiary-fixed": "#dee4d9",
+                        "on-secondary-container": "#576a4f",
+                        "surface-container-highest": "#e2e2e2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "xl": "80px",
+                        "margin-mobile": "16px",
+                        "base": "8px",
+                        "gutter": "20px",
+                        "lg": "48px",
+                        "md": "24px",
+                        "margin-desktop": "64px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "price-tag": ["Archivo Narrow"],
+                        "display-lg": ["Archivo Narrow"],
+                        "headline-lg-mobile": ["Archivo Narrow"],
+                        "label-caps": ["Hanken Grotesk"],
+                        "headline-lg": ["Archivo Narrow"],
+                        "body-md": ["Hanken Grotesk"],
+                        "display-xl": ["Archivo Narrow"],
+                        "body-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "price-tag": ["20px", { "lineHeight": "20px", "fontWeight": "700" }],
+                        "display-lg": ["64px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "900" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "32px", "fontWeight": "800" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-xl": ["84px", { "lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "900" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col bg-background">
+<!-- TopNavBar -->
+<nav class="flex justify-between items-center w-full px-margin-desktop py-base bg-surface border-b-2 border-on-tertiary-fixed w-full sticky top-0 z-50 flat no shadows">
+<div class="font-display-lg text-headline-lg-mobile tracking-tighter text-on-surface dark:text-on-surface">ABON SEWA KAMERA</div>
+<div class="hidden md:flex gap-gutter items-center">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80 font-body-md text-body-md" href="#">Kamera</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80 font-body-md text-body-md" href="#">Lensa</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80 font-body-md text-body-md" href="#">Lighting</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80 font-body-md text-body-md" href="#">Audio</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80 font-body-md text-body-md" href="#">Support</a>
+</div>
+<button class="bg-on-tertiary-fixed text-surface-bright px-md py-base font-label-caps text-label-caps border border-on-tertiary-fixed hover:bg-primary-container transition-colors rounded-none">Booking via WhatsApp</button>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow px-margin-mobile md:px-margin-desktop py-xl">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter max-w-[1440px] mx-auto">
+<!-- Page Header -->
+<div class="col-span-1 md:col-span-12 mb-lg">
+<h1 class="font-display-xl text-display-xl text-on-surface tracking-tighter">CONTACT &amp; LOCATION</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-sm">Technical Gear Rental Basecamp.</p>
+</div>
+<!-- Left Column: Details -->
+<div class="col-span-1 md:col-span-4 flex flex-col gap-lg">
+<!-- Info Block: Address -->
+<div class="border border-on-tertiary-fixed bg-surface p-md rounded-none relative">
+<div class="absolute top-0 right-0 bg-primary-container px-base py-xs border-b border-l border-on-tertiary-fixed rounded-none">
+<span class="font-label-caps text-label-caps text-surface-bright">HQ</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-sm">STUDIO ABON</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Jl. Basudewa No. 08<br/>Semarang Selatan<br/>Kota Semarang, Jawa Tengah 50241</p>
+</div>
+<!-- Info Block: Hours -->
+<div class="border border-on-tertiary-fixed bg-surface p-md rounded-none relative">
+<div class="absolute top-0 right-0 bg-primary-container px-base py-xs border-b border-l border-on-tertiary-fixed rounded-none">
+<span class="font-label-caps text-label-caps text-surface-bright">HOURS</span>
+</div>
+<div class="flex items-center gap-sm mb-sm">
+<span class="w-3 h-3 bg-primary-container block"></span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">05.30 - 23.30</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Open Daily. Gear pickup and return available within these hours.</p>
+</div>
+<!-- Quick Actions -->
+<div class="flex flex-col gap-sm">
+<button class="w-full bg-on-tertiary-fixed text-surface-bright px-md py-sm font-label-caps text-label-caps border border-on-tertiary-fixed hover:bg-primary-container transition-colors rounded-none flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">directions</span>
+                        Get Directions
+                    </button>
+<button class="w-full bg-transparent text-on-tertiary-fixed px-md py-sm font-label-caps text-label-caps border-2 border-on-tertiary-fixed hover:bg-surface-variant transition-colors rounded-none flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined">call</span>
+                        Call Us
+                    </button>
+<button class="w-full bg-transparent text-on-tertiary-fixed px-md py-sm font-label-caps text-label-caps border-2 border-on-tertiary-fixed hover:bg-surface-variant transition-colors rounded-none flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined">mail</span>
+                        Email Us
+                    </button>
+</div>
+</div>
+<!-- Right Column: Map -->
+<div class="col-span-1 md:col-span-8 border border-on-tertiary-fixed bg-surface-container relative h-[500px] md:h-auto min-h-[500px] rounded-none overflow-hidden">
+<div class="absolute inset-0 bg-surface-container">
+<!-- Replacing raw map image with an aesthetic representation of a map location to fit technical minimalism -->
+<img class="w-full h-full object-cover opacity-80" data-alt="A highly detailed, top-down satellite view or stylized map of Semarang, Indonesia, rendered in a technical minimalist aesthetic. The map uses a sophisticated color palette of crisp whites, soft grays, and accents of forest green (#5A7354) to highlight key routes and the central location. The lighting is bright and even, creating a clean, high-contrast light mode appearance suitable for a professional camera rental service UI. Sharp lines and geometric precision dominate the composition." data-location="Semarang" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpyN2uX59NPO0INSwUNK-o7ZHW1kYuF7vuHdc3U9TXf24GrjB4exyZLAUI5P5tSiJC_4qutjTB5JfaSLSCnuahF3CogoKS-fZNjKgcduj4_GNFbT_dFL6XKVHC0xfGuq-NmWOI_bPRPxn6Hl_kwLqTNZ5UX4rlsjes2O9FgHNYzxndEpuIngG86M3inrFvuop7xvywQYtHygG4XMqD3yzukb06J7KJPjKVVeVLIlFuizXmZrObFrKF"/>
+</div>
+<!-- Map Overlay Elements for Technical Feel -->
+<div class="absolute bottom-md right-md bg-surface border border-on-tertiary-fixed p-sm flex gap-base opacity-90">
+<button class="w-8 h-8 flex items-center justify-center border border-on-tertiary-fixed hover:bg-surface-variant">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center border border-on-tertiary-fixed hover:bg-surface-variant">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+</div>
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1; font-size: 48px;">location_on</span>
+<div class="bg-on-tertiary-fixed text-surface-bright px-sm py-xs font-label-caps text-label-caps mt-xs border border-on-tertiary-fixed">
+                         STUDIO ABON
+                     </div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="grid grid-cols-12 gap-gutter px-margin-desktop py-xl bg-on-tertiary-fixed text-surface-bright w-full mt-xl border-t-2 border-on-tertiary-fixed-variant flat no shadows dark:bg-on-tertiary-fixed font-label-caps text-label-caps text-surface-bright dark:text-surface-bright">
+<div class="col-span-12 md:col-span-6 flex flex-col gap-sm">
+<span class="font-display-xl text-display-lg text-surface-bright">ABON SEWA KAMERA</span>
+<span class="text-surface-variant">© 2024 ABON SEWA KAMERA SEMARANG. TECHNICAL GEAR RENTAL.</span>
+</div>
+<div class="col-span-12 md:col-span-6 flex flex-wrap gap-lg md:justify-end items-end">
+<a class="text-surface-variant hover:text-primary-fixed transition-colors" href="#">Instagram</a>
+<a class="text-surface-variant hover:text-primary-fixed transition-colors" href="#">WhatsApp</a>
+<a class="text-surface-variant hover:text-primary-fixed transition-colors" href="#">Location</a>
+<a class="text-surface-variant hover:text-primary-fixed transition-colors" href="#">Terms of Service</a>
+</div>
+</footer>
+</body></html>

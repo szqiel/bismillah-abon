@@ -1,0 +1,45 @@
+import type { Metadata } from "next";
+import { Archivo_Narrow, Hanken_Grotesk } from "next/font/google";
+import "./globals.css";
+import { TopNavBar } from "@/components/ui/TopNavBar";
+import { Footer } from "@/components/ui/Footer";
+import { siteConfig } from "@/config/site";
+
+const archivoNarrow = Archivo_Narrow({
+  variable: "--font-archivo-narrow",
+  subsets: ["latin"],
+});
+
+const hankenGrotesk = Hanken_Grotesk({
+  variable: "--font-hanken-grotesk",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: siteConfig.name,
+  description: siteConfig.description,
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body
+        className={`${archivoNarrow.variable} ${hankenGrotesk.variable} antialiased min-h-screen flex flex-col bg-background text-on-surface`}
+      >
+        <TopNavBar />
+        <main className="flex-grow">{children}</main>
+        <Footer />
+      </body>
+    </html>
+  );
+}

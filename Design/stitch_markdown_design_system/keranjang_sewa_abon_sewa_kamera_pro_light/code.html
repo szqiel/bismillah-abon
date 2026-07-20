@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Abon Sewa Kamera - Rental Cart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container": "#eeeeee",
+                      "primary-fixed": "#ceebc4",
+                      "outline-variant": "#c3c8be",
+                      "error": "#ba1a1a",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-bright": "#f9f9f9",
+                      "on-primary-fixed": "#0a2009",
+                      "on-tertiary-fixed": "#171d16",
+                      "secondary-fixed": "#d3e9c8",
+                      "on-tertiary-container": "#ebf1e5",
+                      "on-surface-variant": "#434840",
+                      "on-error": "#ffffff",
+                      "surface": "#f9f9f9",
+                      "secondary-fixed-dim": "#b8cdad",
+                      "on-secondary-fixed": "#0f1f0b",
+                      "tertiary": "#4f564d",
+                      "surface-container-high": "#e8e8e8",
+                      "primary-fixed-dim": "#b3ceaa",
+                      "primary": "#425a3d",
+                      "on-primary-container": "#dbf7d1",
+                      "surface-tint": "#4c6547",
+                      "on-secondary": "#ffffff",
+                      "surface-container-low": "#f3f3f3",
+                      "tertiary-container": "#686e65",
+                      "on-primary": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "on-surface": "#1a1c1c",
+                      "on-tertiary-fixed-variant": "#424940",
+                      "on-background": "#1a1c1c",
+                      "surface-variant": "#e2e2e2",
+                      "on-tertiary": "#ffffff",
+                      "inverse-on-surface": "#f1f1f1",
+                      "inverse-surface": "#2f3131",
+                      "secondary": "#51644a",
+                      "error-container": "#ffdad6",
+                      "outline": "#747970",
+                      "inverse-primary": "#b3ceaa",
+                      "tertiary-fixed-dim": "#c2c8bd",
+                      "primary-container": "#5a7354",
+                      "background": "#f9f9f9",
+                      "on-secondary-fixed-variant": "#394c33",
+                      "surface-dim": "#dadada",
+                      "secondary-container": "#d3e9c8",
+                      "on-primary-fixed-variant": "#354d31",
+                      "tertiary-fixed": "#dee4d9",
+                      "on-secondary-container": "#576a4f",
+                      "surface-container-highest": "#e2e2e2"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sm": "12px",
+                      "xl": "80px",
+                      "margin-mobile": "16px",
+                      "base": "8px",
+                      "gutter": "20px",
+                      "lg": "48px",
+                      "md": "24px",
+                      "margin-desktop": "64px",
+                      "xs": "4px"
+              },
+              "fontFamily": {
+                      "price-tag": [
+                              "Archivo Narrow", "sans-serif"
+                      ],
+                      "display-lg": [
+                              "Archivo Narrow", "sans-serif"
+                      ],
+                      "headline-lg-mobile": [
+                              "Archivo Narrow", "sans-serif"
+                      ],
+                      "label-caps": [
+                              "Hanken Grotesk", "sans-serif"
+                      ],
+                      "headline-lg": [
+                              "Archivo Narrow", "sans-serif"
+                      ],
+                      "body-md": [
+                              "Hanken Grotesk", "sans-serif"
+                      ],
+                      "display-xl": [
+                              "Archivo Narrow", "sans-serif"
+                      ],
+                      "body-lg": [
+                              "Hanken Grotesk", "sans-serif"
+                      ]
+              },
+              "fontSize": {
+                      "price-tag": [
+                              "20px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "64px",
+                              {
+                                      "lineHeight": "64px",
+                                      "letterSpacing": "-0.03em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "36px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-xl": [
+                              "84px",
+                              {
+                                      "lineHeight": "80px",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@700;800;900&amp;family=Hanken+Grotesk:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-sans antialiased">
+<!-- TopNavBar (Shared Component) -->
+<header class="w-full sticky top-0 z-50 bg-surface dark:bg-surface border-b-2 border-on-tertiary-fixed">
+<div class="flex justify-between items-center w-full px-margin-desktop py-base bg-surface">
+<div class="font-display-lg text-headline-lg-mobile md:text-display-lg tracking-tighter text-on-surface dark:text-on-surface">
+                ABON SEWA KAMERA
+            </div>
+<nav class="hidden md:flex gap-md font-body-md text-body-md text-on-surface-variant font-medium">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80" href="#">Kamera</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80" href="#">Lensa</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80" href="#">Lighting</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80" href="#">Audio</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80" href="#">Support</a>
+</nav>
+<div class="flex items-center gap-sm">
+<!-- Search Icon -->
+<button class="p-xs text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="hidden md:inline-flex items-center justify-center bg-on-tertiary-fixed text-on-primary font-label-caps text-label-caps px-md py-sm rounded-none hover:bg-primary-container transition-colors border border-on-tertiary-fixed">
+                    Booking via WhatsApp
+                </button>
+<!-- Mobile Menu Icon -->
+<button class="md:hidden p-xs text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow px-margin-mobile md:px-margin-desktop py-lg">
+<div class="mb-md">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface uppercase border-b-2 border-on-tertiary-fixed pb-xs inline-block">Rental Cart</h1>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Cart Items (Left Column) -->
+<div class="lg:col-span-8 flex flex-col gap-md">
+<!-- Cart Item 1 -->
+<div class="flex flex-col md:flex-row bg-surface-container-lowest border border-on-tertiary-fixed relative overflow-hidden group">
+<!-- Spec-Tag (Price) - Pinned Top Left on mobile, Top Right on Desktop -->
+<div class="absolute top-0 right-0 md:left-0 md:right-auto bg-primary-container text-on-primary px-sm py-xs font-price-tag text-price-tag flex items-baseline gap-xs z-10 border-l border-b md:border-r md:border-l-0 border-on-tertiary-fixed">
+                        Rp 850.000 <span class="font-label-caps text-label-caps text-primary-fixed-dim">/ DAY</span>
+</div>
+<!-- Image Section -->
+<div class="w-full md:w-48 h-48 bg-surface-container relative border-b md:border-b-0 md:border-r border-on-tertiary-fixed shrink-0">
+<img class="w-full h-full object-cover mix-blend-multiply p-md" data-alt="A highly detailed close-up of a professional Sony FX3 cinema camera body against a clean, minimal light grey background. The lighting is studio-quality, highlighting the metallic texture, buttons, and robust build of the camera, embodying a technical, high-end professional aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdPYqMmLYGM6AZjWePWuv3wYuYGU3oQ3st5plzpj9hgYGYR5DDaIfHfIH8J-kAshecutqaTbzhVYUS4PcCwQyP_2k_9EmODhhoOEkcX-mzCCfTi6xPCvZYXUjm_Yo80cHUZwCkfIyI8UoMAacpORsVZJlpkVuBBC04LLqXkr9JQthMYnHB1gPq9zy1ul2vnwxjlyOI19T_6k0rCCxmOaco7R6np5ZYN3G_L-2HOrTEXONPHtJV1YGS"/>
+</div>
+<!-- Details Section -->
+<div class="p-md flex flex-col justify-between flex-grow mt-lg md:mt-0 md:ml-md">
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Sony FX3 Cinema Line</h2>
+<div class="flex flex-wrap gap-xs mt-sm">
+<span class="bg-surface-container px-sm py-xs font-label-caps text-label-caps text-on-surface-variant border border-outline-variant">4K/120p</span>
+<span class="bg-surface-container px-sm py-xs font-label-caps text-label-caps text-on-surface-variant border border-outline-variant">10-bit 4:2:2</span>
+<span class="bg-surface-container px-sm py-xs font-label-caps text-label-caps text-on-surface-variant border border-outline-variant">Full-Frame</span>
+</div>
+</div>
+<div class="flex items-end justify-between mt-md pt-sm border-t border-surface-variant">
+<div class="flex items-center gap-xs">
+<span class="font-label-caps text-label-caps text-on-surface-variant">QTY</span>
+<div class="flex items-center border border-on-tertiary-fixed bg-surface">
+<button class="w-8 h-8 flex items-center justify-center hover:bg-surface-variant transition-colors text-on-surface">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="w-8 text-center font-body-md text-body-md">1</span>
+<button class="w-8 h-8 flex items-center justify-center hover:bg-surface-variant transition-colors text-on-surface border-l border-on-tertiary-fixed">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+<button class="text-error hover:text-on-error-container flex items-center gap-xs font-label-caps text-label-caps transition-colors">
+<span class="material-symbols-outlined text-sm">delete</span>
+                                REMOVE
+                            </button>
+</div>
+</div>
+</div>
+<!-- Cart Item 2 -->
+<div class="flex flex-col md:flex-row bg-surface-container-lowest border border-on-tertiary-fixed relative overflow-hidden group">
+<!-- Spec-Tag (Price) -->
+<div class="absolute top-0 right-0 md:left-0 md:right-auto bg-primary-container text-on-primary px-sm py-xs font-price-tag text-price-tag flex items-baseline gap-xs z-10 border-l border-b md:border-r md:border-l-0 border-on-tertiary-fixed">
+                        Rp 300.000 <span class="font-label-caps text-label-caps text-primary-fixed-dim">/ DAY</span>
+</div>
+<!-- Image Section -->
+<div class="w-full md:w-48 h-48 bg-surface-container relative border-b md:border-b-0 md:border-r border-on-tertiary-fixed shrink-0">
+<img class="w-full h-full object-cover mix-blend-multiply p-md" data-alt="A crisp, high-resolution product shot of a Sony FE 24-70mm f/2.8 GM lens. The lens is positioned vertically against a seamless, bright white-grey background. Subtle reflections highlight the glass element and matte black finish, communicating premium optical quality and technical precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEjnoXCNceXz2MtVA8E9sB-yKUjV_RogT-dErr47v0VrbuzRZNuLNpqd2SzJDimM5g-AIfHDbkf-vXpCbXcSSKY5PSihiFVAnQE6OVIelv6P5Mhz1onW8IrXa9FmLIeuZgOYt72DvFv1MoFrWCIYCEO-OBeCRUFCc_XPujLT9JC5f7ySt2ofC6QdFfB7NOPOzmJJzCmVa_8IwEVulzLxspaGZwpPdlIdu7zTizfUcm2OwFZQoRbICD"/>
+</div>
+<!-- Details Section -->
+<div class="p-md flex flex-col justify-between flex-grow mt-lg md:mt-0 md:ml-md">
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Sony FE 24-70mm f/2.8 GM</h2>
+<div class="flex flex-wrap gap-xs mt-sm">
+<span class="bg-surface-container px-sm py-xs font-label-caps text-label-caps text-on-surface-variant border border-outline-variant">E-Mount</span>
+<span class="bg-surface-container px-sm py-xs font-label-caps text-label-caps text-on-surface-variant border border-outline-variant">Full-Frame</span>
+</div>
+</div>
+<div class="flex items-end justify-between mt-md pt-sm border-t border-surface-variant">
+<div class="flex items-center gap-xs">
+<span class="font-label-caps text-label-caps text-on-surface-variant">QTY</span>
+<div class="flex items-center border border-on-tertiary-fixed bg-surface">
+<button class="w-8 h-8 flex items-center justify-center hover:bg-surface-variant transition-colors text-on-surface">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="w-8 text-center font-body-md text-body-md">1</span>
+<button class="w-8 h-8 flex items-center justify-center hover:bg-surface-variant transition-colors text-on-surface border-l border-on-tertiary-fixed">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+<button class="text-error hover:text-on-error-container flex items-center gap-xs font-label-caps text-label-caps transition-colors">
+<span class="material-symbols-outlined text-sm">delete</span>
+                                REMOVE
+                            </button>
+</div>
+</div>
+</div>
+<!-- Add More Gear Button -->
+<button class="w-full py-md border-2 border-dashed border-outline-variant text-on-surface-variant font-label-caps text-label-caps hover:border-primary hover:text-primary transition-colors flex items-center justify-center gap-sm bg-surface-container-lowest">
+<span class="material-symbols-outlined">add_circle</span>
+                    ADD MORE GEAR
+                </button>
+</div>
+<!-- Summary Card (Right Column) -->
+<div class="lg:col-span-4 mt-lg lg:mt-0">
+<div class="bg-surface border-2 border-on-tertiary-fixed sticky top-[100px]">
+<div class="p-md border-b border-on-tertiary-fixed bg-on-tertiary-fixed text-on-primary">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile uppercase">Rental Summary</h2>
+</div>
+<div class="p-md flex flex-col gap-sm font-body-md text-body-md text-on-surface">
+<!-- Duration Input -->
+<div class="flex justify-between items-center pb-sm border-b border-surface-variant">
+<span class="font-label-caps text-label-caps text-on-surface-variant">DURATION</span>
+<div class="flex items-center border border-on-tertiary-fixed">
+<button class="px-sm py-xs hover:bg-surface-variant border-r border-on-tertiary-fixed">-</button>
+<span class="px-md py-xs font-bold text-on-surface">3 Days</span>
+<button class="px-sm py-xs hover:bg-surface-variant border-l border-on-tertiary-fixed">+</button>
+</div>
+</div>
+<!-- Subtotal -->
+<div class="flex justify-between items-center py-sm">
+<span class="text-on-surface-variant">Daily Rate Total</span>
+<span class="font-price-tag text-price-tag">Rp 1.150.000</span>
+</div>
+<!-- Subtotal x Duration -->
+<div class="flex justify-between items-center py-sm">
+<span class="text-on-surface-variant">Subtotal (3 Days)</span>
+<span class="font-price-tag text-price-tag">Rp 3.450.000</span>
+</div>
+<!-- Promo Code Input -->
+<div class="pt-sm pb-md border-b border-surface-variant">
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-xs">PROMO CODE / MEMBER ID</label>
+<div class="flex">
+<input class="w-full bg-surface-container-lowest border border-on-tertiary-fixed px-sm py-xs font-body-md focus:outline-none focus:border-2 focus:border-primary-container" placeholder="Enter code" type="text" value="MEMBER-PRO"/>
+<button class="bg-on-tertiary-fixed text-on-primary px-sm font-label-caps text-label-caps border border-l-0 border-on-tertiary-fixed hover:bg-primary-container transition-colors">APPLY</button>
+</div>
+</div>
+<!-- Discount -->
+<div class="flex justify-between items-center py-sm text-primary-container">
+<span class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm">loyalty</span>
+                                Member Promo (10%)
+                            </span>
+<span class="font-price-tag text-price-tag">- Rp 345.000</span>
+</div>
+</div>
+<!-- Total -->
+<div class="p-md bg-surface-container-lowest border-t-2 border-on-tertiary-fixed flex justify-between items-end">
+<span class="font-label-caps text-label-caps text-on-surface-variant">ESTIMATED TOTAL</span>
+<div class="flex flex-col items-end">
+<span class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-on-surface leading-none">Rp 3.105.000</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-xs">*Excludes deposit if applicable</span>
+</div>
+</div>
+<!-- CTA -->
+<div class="p-sm bg-surface-container-lowest border-t border-on-tertiary-fixed">
+<button class="w-full bg-on-tertiary-fixed text-on-primary font-label-caps text-label-caps py-md flex items-center justify-center gap-sm hover:bg-primary-container transition-colors duration-200 border border-on-tertiary-fixed">
+<span class="material-symbols-outlined">send</span>
+                            Booking via WhatsApp
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full mt-xl border-t-2 border-on-tertiary-fixed-variant grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop py-xl bg-on-tertiary-fixed text-surface-bright dark:bg-on-tertiary-fixed">
+<div class="col-span-1 md:col-span-12 flex flex-col items-center md:items-start justify-center text-center md:text-left gap-md">
+<div class="font-display-xl text-display-lg text-surface-bright uppercase">
+                ABON SEWA KAMERA
+            </div>
+<nav class="flex flex-wrap justify-center md:justify-start gap-md font-label-caps text-label-caps">
+<a class="text-surface-variant hover:text-primary-fixed transition-colors" href="#">Instagram</a>
+<a class="text-surface-variant hover:text-primary-fixed transition-colors" href="#">WhatsApp</a>
+<a class="text-surface-variant hover:text-primary-fixed transition-colors" href="#">Location</a>
+<a class="text-surface-variant hover:text-primary-fixed transition-colors" href="#">Terms of Service</a>
+</nav>
+<div class="font-label-caps text-label-caps text-surface-variant mt-md">
+                © 2024 ABON SEWA KAMERA SEMARANG. TECHNICAL GEAR RENTAL.
+            </div>
+</div>
+</footer>
+</body></html>
