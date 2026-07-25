@@ -1,5 +1,6 @@
 import { ProductCard } from "@/components/ui/ProductCard";
 import { inventory } from "@/lib/data";
+import { siteConfig } from "@/config/site";
 import Link from "next/link";
 
 export default function Home() {
@@ -9,16 +10,16 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-[120px] pb-0 md:pt-[160px] flex flex-col items-center text-center px-margin-page bg-surface-container-lowest overflow-hidden">
+      <section className="relative pt-[80px] pb-0 md:pt-[100px] flex flex-col items-center text-center px-margin-page bg-surface-container-lowest overflow-hidden">
         {/* Text Content */}
-        <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center gap-4 mb-12">
-          <h1 className="font-display-xl text-[48px] md:text-[72px] font-bold text-on-surface tracking-tighter leading-tight">
+        <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center gap-3 mb-6">
+          <h1 className="font-display-xl text-[44px] md:text-[64px] font-bold text-on-surface tracking-tighter leading-tight">
             Rental Kamera <span className="text-primary">Termurah</span>
           </h1>
-          <p className="font-body-md text-[20px] md:text-[24px] text-on-surface-variant max-w-2xl font-normal">
+          <p className="font-body-md text-[18px] md:text-[22px] text-on-surface-variant max-w-2xl font-normal">
             Everything a production needs, priced up front, ready tonight. The most comprehensive gear hub in Central Java.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 mt-6">
+          <div className="flex flex-col sm:flex-row gap-4 mt-3">
             <Link className="bg-primary text-on-primary font-body-md text-[16px] px-8 py-3 rounded-full hover:bg-primary/90 transition-all active:scale-95 flex items-center justify-center font-semibold" href="/catalog">
               Lihat Katalog
             </Link>
@@ -31,8 +32,8 @@ export default function Home() {
         {/* Hero Image */}
         <div className="relative z-10 w-full max-w-4xl mx-auto mt-auto flex justify-center">
           <img 
-            className="w-full h-auto max-h-[50vh] object-contain object-bottom" 
-            alt="Rental Kamera Hero" 
+            className="w-full h-auto max-h-[38vh] md:max-h-[42vh] object-contain object-bottom" 
+            alt="Hero Background" 
             src="https://static.bhphoto.com/images/images750x750/1605606382_1600161.jpg" 
           />
         </div>
