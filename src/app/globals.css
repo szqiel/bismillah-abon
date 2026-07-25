@@ -150,6 +150,10 @@
   --text-headline-lg--font-weight: 800;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--background);
   color: var(--on-surface);
@@ -176,3 +180,19 @@ body {
 }
 .hard-border { border: 2px solid var(--on-tertiary-fixed); }
 .spec-tag-bg { background-color: var(--primary-container); color: var(--on-primary); }
+
+@keyframes skeleton-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--surface-container-low) 25%,
+    var(--surface-container) 37%,
+    var(--surface-container-low) 63%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.4s ease infinite;
+}

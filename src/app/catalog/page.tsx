@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { inventory } from "@/lib/data";
 import { ProductCard } from "@/components/ui/ProductCard";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { useSearchParams } from "next/navigation";
 
 export default function CatalogPage() {
@@ -111,12 +112,12 @@ export default function CatalogPage() {
         {/* Product Grid Section */}
         <section className="flex-1 w-full">
           {/* Category Header */}
-          <div className="mb-8 pb-4 border-b-2 border-on-surface relative">
+          <ScrollReveal className="mb-8 pb-4 border-b-2 border-on-surface relative">
             <h1 className="font-display-xl text-headline-lg-mobile md:text-headline-lg uppercase text-on-surface">
               {selectedCategories.length === 1 ? selectedCategories[0] : "ABON'S CATALOG"}
             </h1>
             <div className="absolute bottom-[-2px] left-0 w-24 h-0.5 bg-primary"></div>
-          </div>
+          </ScrollReveal>
 
           {filteredInventory.length === 0 ? (
             <div className="text-center py-12 font-body-md text-on-surface-variant">
@@ -124,8 +125,10 @@ export default function CatalogPage() {
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-              {filteredInventory.map((item) => (
-                <ProductCard key={item.id} item={item} />
+              {filteredInventory.map((item, idx) => (
+                <ScrollReveal key={item.id} delay={Math.min(idx * 0.05, 0.3)}>
+                  <ProductCard item={item} />
+                </ScrollReveal>
               ))}
             </div>
           )}
