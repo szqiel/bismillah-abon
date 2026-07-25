@@ -62,6 +62,9 @@ export default function Home() {
               <h2 className="font-display-xl text-headline-lg-mobile md:text-headline-lg uppercase font-black tracking-tighter">Bundling Packages</h2>
               <p className="font-body-md text-on-surface-variant mt-2">Pre-configured kits for typical shoot scenarios. Save up to 20%.</p>
             </div>
+            <Link className="font-category-label text-[16px] text-primary hover:underline flex items-center gap-1" href="/bundles">
+              View All <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+            </Link>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
