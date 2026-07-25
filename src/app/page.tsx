@@ -3,7 +3,8 @@ import { inventory } from "@/lib/data";
 import Link from "next/link";
 
 export default function Home() {
-  const featuredGear = inventory.slice(0, 3);
+  const featuredGear = inventory.filter(item => item.category !== "Bundle").slice(0, 3);
+  const homeBundles = inventory.filter(item => item.category === "Bundle").slice(0, 4);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -53,87 +54,19 @@ export default function Home() {
       </section>
 
       {/* Bundling Packages */}
-      <section className="py-section-mobile md:py-section-desktop bg-surface-bright px-margin-page text-on-surface border-t-4 border-on-surface">
+      <section className="py-section-mobile md:py-section-desktop bg-surface-bright px-margin-page text-on-surface border-t border-primary/20">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 border-b-2 border-on-surface pb-4 gap-4">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 border-b border-primary pb-4 gap-4">
             <div>
               <h2 className="font-display-xl text-headline-lg-mobile md:text-headline-lg uppercase font-black tracking-tighter">Bundling Packages</h2>
               <p className="font-body-md text-on-surface-variant mt-2">Pre-configured kits for typical shoot scenarios. Save up to 20%.</p>
             </div>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
-            {/* Bundle Card 1 */}
-            <div className="bg-surface-container-low rounded-xl p-6 border-2 border-on-surface flex flex-col md:flex-row gap-6 relative overflow-hidden group hover:shadow-[8px_8px_0px_var(--on-surface)] transition-all">
-              <div className="absolute -right-6 -top-6 bg-primary text-on-primary font-category-label font-black w-32 h-32 rounded-full transform rotate-12 border-4 border-on-surface group-hover:rotate-[24deg] transition-transform flex flex-col items-center justify-center shadow-lg">
-                  <span className="text-[12px] leading-none opacity-90">HEMAT</span>
-                  <span className="text-[20px] leading-none mt-1">15%</span>
-              </div>
-              <div className="w-full md:w-2/5 flex flex-col gap-4 bg-surface p-4 rounded-lg border border-outline-variant/30">
-                <img 
-                  className="w-full h-32 object-contain mix-blend-multiply" 
-                  alt="Bundle 1" 
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL6GsJ4OJLkuBpZ0z9e_Q_Ukm0qcMKMK21irkAKScXFTxvBmwx6SOIoWzOhAYLl5P5MdnD3OtVExlz3WUiF_teI5-rUFyle8HyW5WxfgXs2SNdpnIoC0rY-IgbkfC3BR-MzHX5H-j9YDcl_ybbUDqNX-fkhn1Vtt5GWYSwbmi6WkWm1IrHXBZKJ4G_V-Y5NHPv2wd5KxvZJX0bT33Z1-gYIGGjVNhkJW8i6uchI-f7dqhnus-eZVpp" 
-                />
-                <div className="flex items-center justify-center gap-2 font-display-xl text-[20px] font-bold text-on-surface">
-                  A7 III <span className="text-primary">+</span> 28-75mm
-                </div>
-              </div>
-              <div className="w-full md:w-3/5 flex flex-col justify-center">
-                <h3 className="font-display-xl text-[28px] uppercase font-black leading-tight mb-2 text-on-surface">The Essential<br/>Wedding Kit</h3>
-                <ul className="font-body-md text-[14px] text-on-surface-variant space-y-1 mb-6 list-disc list-inside">
-                  <li>Sony A7 III Body</li>
-                  <li>Tamron 28-75mm f/2.8</li>
-                  <li>2x NP-FZ100 Batteries</li>
-                  <li>SanDisk 64GB Extreme Pro</li>
-                </ul>
-                <div className="flex items-center justify-between mt-auto">
-                  <div className="bg-surface-container text-on-surface rounded-full px-4 py-2 flex items-center gap-3">
-                    <span className="font-price-chip text-[18px] font-bold line-through text-outline">450k</span>
-                    <span className="font-price-chip text-[20px] text-primary font-bold">380k<span className="text-[12px] text-on-surface-variant font-normal">/12H</span></span>
-                  </div>
-                  <Link href="/catalog" className="bg-on-surface text-background rounded-full p-3 hover:bg-primary hover:text-on-primary transition-colors">
-                    <span className="material-symbols-outlined text-[24px]">arrow_forward</span>
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Bundle Card 2 */}
-            <div className="bg-surface-container-low rounded-xl p-6 border-2 border-on-surface flex flex-col md:flex-row gap-6 relative overflow-hidden group hover:shadow-[8px_8px_0px_var(--on-surface)] transition-all">
-              <div className="absolute -right-6 -top-6 bg-primary text-on-primary font-category-label font-black w-32 h-32 rounded-full transform rotate-12 border-4 border-on-surface group-hover:rotate-[24deg] transition-transform flex flex-col items-center justify-center shadow-lg">
-                  <span className="text-[12px] leading-none opacity-90">HEMAT</span>
-                  <span className="text-[20px] leading-none mt-1">20%</span>
-              </div>
-              <div className="w-full md:w-2/5 flex flex-col gap-4 bg-surface p-4 rounded-lg border border-outline-variant/30">
-                <img 
-                  className="w-full h-32 object-contain mix-blend-multiply" 
-                  alt="Bundle 2" 
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNLooZazDlroYQR3pJhLx2nPA_R5PoYWIvPJpB9_7RJg62FxtZHQSg-rbivBB7pSdwc9FqAE27Xg_CruHfEiryPKMu4860B9i5AfFxb51dUk-xqRB9ySzgTVIT8Ty3BEXJFJMx2cxpx_6qGw0v9DyiU04NRfBT_rTD51bZ6ZNHK5C7TRnovP28oDcTxRmMJpGappGInTUx45Q2Vt2XJfcStfA2Sw5UrjeUWzkkD8JJ5C1CWuoukP7W" 
-                />
-                <div className="flex items-center justify-center gap-2 font-display-xl text-[20px] font-bold text-on-surface">
-                  2x SL60W <span className="text-primary">+</span> Softbox
-                </div>
-              </div>
-              <div className="w-full md:w-3/5 flex flex-col justify-center">
-                <h3 className="font-display-xl text-[28px] uppercase font-black leading-tight mb-2 text-on-surface">Basic Studio<br/>Lighting</h3>
-                <ul className="font-body-md text-[14px] text-on-surface-variant space-y-1 mb-6 list-disc list-inside">
-                  <li>2x Godox SL60W Video Light</li>
-                  <li>2x Rectangular Softbox 60x90</li>
-                  <li>2x Light Stand Takara</li>
-                  <li>Kabel Roll 10m</li>
-                </ul>
-                <div className="flex items-center justify-between mt-auto">
-                  <div className="bg-surface-container text-on-surface rounded-full px-4 py-2 flex items-center gap-3">
-                    <span className="font-price-chip text-[18px] font-bold line-through text-outline">200k</span>
-                    <span className="font-price-chip text-[20px] text-primary font-bold">160k<span className="text-[12px] text-on-surface-variant font-normal">/12H</span></span>
-                  </div>
-                  <Link href="/catalog" className="bg-on-surface text-background rounded-full p-3 hover:bg-primary hover:text-on-primary transition-colors">
-                    <span className="material-symbols-outlined text-[24px]">arrow_forward</span>
-                  </Link>
-                </div>
-              </div>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+            {homeBundles.map((bundle) => (
+              <ProductCard key={bundle.id} item={bundle} />
+            ))}
           </div>
         </div>
       </section>

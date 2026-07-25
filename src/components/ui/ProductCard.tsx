@@ -8,7 +8,13 @@ export function ProductCard({ item }: { item: GearItem }) {
     <Link href={`/product/${item.id}`} className="block h-full">
       <div className={`bg-surface-container-low rounded-xl p-6 border-2 border-on-surface flex flex-col gap-6 relative overflow-hidden group transition-all h-full ${isAvailable ? 'hover:shadow-[8px_8px_0px_var(--on-surface)] hover:-translate-y-1 hover:-translate-x-1' : 'opacity-70 grayscale'}`}>
 
-        
+        {/* Bundle Tag Badge */}
+        {item.category === "Bundle" && (
+          <div className="absolute top-3 right-3 bg-primary text-on-primary font-category-label font-bold text-[11px] px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm z-10 border border-on-surface">
+            Bundle
+          </div>
+        )}
+
         {/* Image Container */}
         <div className="w-full h-48 flex items-center justify-center bg-surface-container-lowest p-4 rounded-lg border-2 border-on-surface/10 mt-6 group-hover:border-primary/30 transition-colors">
           <img 
@@ -43,7 +49,7 @@ export function ProductCard({ item }: { item: GearItem }) {
             {/* Action Button */}
             <button className={`rounded-full p-3 flex-shrink-0 flex items-center justify-center transition-colors border-2 border-transparent
               ${isAvailable 
-                ? 'bg-on-surface text-background hover:bg-primary hover:text-on-primary hover:border-on-surface' 
+                ? 'bg-on-surface text-background group-hover:bg-primary group-hover:text-on-primary group-hover:border-on-surface' 
                 : 'bg-surface-container-highest text-on-surface-variant cursor-not-allowed'
               }`}
             >
