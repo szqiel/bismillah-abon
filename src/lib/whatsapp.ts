@@ -17,9 +17,9 @@ export function generateWhatsAppMessage(customerData: CustomerData, items: CartI
 
   // Since items might have different dates/durations, we'll summarize them in the list above.
   // But for the template, if there's only 1 item, we can make it cleaner.
-  let isSingleItem = items.length === 1;
-  let summaryTglAmbil = isSingleItem ? `${items[0].startDate} s/d ${items[0].endDate}` : "Sesuai rincian alat di atas";
-  let summaryDurasi = isSingleItem ? `${items[0].days} Hari` : "Sesuai rincian alat di atas";
+  const isSingleItem = items.length === 1;
+  const summaryTglAmbil = isSingleItem ? `${items[0].startDate} s/d ${items[0].endDate}` : "Sesuai rincian alat di atas";
+  const summaryDurasi = isSingleItem ? `${items[0].days} Hari` : "Sesuai rincian alat di atas";
 
   const msg = `Hi Kak, mau booking ✨
 Nama : ${customerData.nama}

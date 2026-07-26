@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Archivo_Narrow, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import { TopNavBar } from "@/components/ui/TopNavBar";
-import { Footer } from "@/components/ui/Footer";
 import { siteConfig } from "@/config/site";
+import { LayoutWrapper } from "@/components/ui/LayoutWrapper";
 
 const archivoNarrow = Archivo_Narrow({
   variable: "--font-archivo-narrow",
@@ -38,6 +37,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href="/logo.jpg" type="image/jpeg" />
+        <link rel="shortcut icon" href="/logo.jpg" type="image/jpeg" />
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"
@@ -46,9 +47,7 @@ export default function RootLayout({
       <body
         className={`${archivoNarrow.variable} ${jetbrainsMono.variable} ${plusJakartaSans.variable} antialiased min-h-screen flex flex-col bg-background text-on-surface`}
       >
-        <TopNavBar />
-        <main className="flex-grow">{children}</main>
-        <Footer />
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );
