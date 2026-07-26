@@ -1,12 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { GearItem } from "@/lib/data";
 import Link from "next/link";
 
 export function ProductCard({ item }: { item: GearItem }) {
   const isAvailable = item.available;
   const [imageLoaded, setImageLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    if (imgRef.current && imgRef.current.complete) {
+      setImageLoaded(true);
+    }
+  }, []);
 
   return (
     <Link href={`/product/${item.id}`} className="block h-full">
@@ -30,9 +37,11 @@ export function ProductCard({ item }: { item: GearItem }) {
             <div className="absolute inset-0 skeleton-shimmer" />
           )}
           <img
+            ref={imgRef}
             src={item.image}
             alt={item.name}
             onLoad={() => setImageLoaded(true)}
+            onError={() => setImageLoaded(true)}
             className={`w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-all duration-500 ${
               imageLoaded ? "opacity-100 scale-100" : "opacity-0 scale-95"
             }`}

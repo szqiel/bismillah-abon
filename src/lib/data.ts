@@ -19,7 +19,7 @@ export const inventory: GearItem[] = [
     category: "Camera",
     price12h: 940000,
     price24h: 950000,
-    image: "https://www.bhphotovideo.com/cdn-cgi/image/fit=scale-down,width=500,quality=95/https://www.bhphotovideo.com/images/images500x500/sony_ilme_fx6vk_fx6_digital_cinema_camera_1605606382_1600161.jpg", 
+    image: "https://static.bhphoto.com/images/multiple_images/images750x750/1768474579_IMG_1901057.jpg", 
     specs: ["Cinema Line", "Full-Frame"],
     description: "Professional cinema line camera built for high-end video production.",
     available: true,
