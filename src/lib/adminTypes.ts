@@ -54,3 +54,19 @@ export interface BundleComposition {
   bundleId: string;
   componentGearIds: string[];
 }
+
+export interface ConflictDetail {
+  gearItemId: string;
+  gearName: string;
+  conflictingOrderId: string;
+  conflictingOrderRange: { startAt: string; dueAt: string };
+}
+
+export const VALID_TRANSITIONS: Record<OrderStatus, OrderStatus[]> = {
+  pending: ["confirmed", "cancelled"],
+  confirmed: ["out", "cancelled"],
+  out: ["returned"],
+  returned: [],
+  cancelled: [],
+  overdue: ["returned"],
+};

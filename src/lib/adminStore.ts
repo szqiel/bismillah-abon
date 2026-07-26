@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { GearItem, inventory as initialInventory } from "./data";
-import { Customer, Order, OrderStatus, PaymentStatus } from "./adminTypes";
+import { Customer, Order, OrderStatus, PaymentStatus, ConflictDetail } from "./adminTypes";
 import { initialCustomers, initialOrders } from "./adminData";
 
 interface AdminStore {
@@ -25,6 +25,12 @@ interface AdminStore {
     dueAt: string,
     excludeOrderId?: string
   ) => boolean;
+  getConflictDetails: (
+    gearItemId: string,
+    startAt: string,
+    dueAt: string,
+    excludeOrderId?: string
+  ) => ConflictDetail[];
 
   // Customers State
   customers: Customer[];
@@ -128,26 +134,45 @@ export const useAdminStore = create<AdminStore>((set, get) => ({
     })),
 
   checkDateConflict: (gearItemId, startAt, dueAt, excludeOrderId) => {
-    const { orders } = get();
+    return get().getConflictDetails(gearItemId, startAt, dueAt, excludeOrderId).length > 0;
+  },
+
+  getConflictDetails: (gearItemId, startAt, dueAt, excludeOrderId) => {
+    const { orders, inventory } = get();
     const newStart = new Date(startAt).getTime();
     const newDue = new Date(dueAt).getTime();
 
-    if (isNaN(newStart) || isNaN(newDue)) return false;
+    if (isNaN(newStart) || isNaN(newDue)) return [];
 
-    return orders.some((order) => {
-      if (excludeOrderId && order.id === excludeOrderId) return false;
-      // Only active orders cause conflicts
-      if (order.status === "cancelled" || order.status === "returned") return false;
+    const gear = inventory.find((g) => g.id === gearItemId);
+    const gearName = gear ? gear.name : gearItemId;
+
+    const conflicts: ConflictDetail[] = [];
+
+    orders.forEach((order) => {
+      if (excludeOrderId && order.id === excludeOrderId) return;
+      if (order.status === "cancelled" || order.status === "returned") return;
 
       const hasItem = order.items.some((i) => i.gearItemId === gearItemId);
-      if (!hasItem) return false;
+      if (!hasItem) return;
 
       const orderStart = new Date(order.startAt).getTime();
       const orderDue = new Date(order.dueAt).getTime();
 
-      // Check overlap range
-      return newStart < orderDue && newDue > orderStart;
+      if (newStart < orderDue && newDue > orderStart) {
+        conflicts.push({
+          gearItemId,
+          gearName,
+          conflictingOrderId: order.id,
+          conflictingOrderRange: {
+            startAt: order.startAt,
+            dueAt: order.dueAt,
+          },
+        });
+      }
     });
+
+    return conflicts;
   },
 
   // --- CUSTOMERS ACTIONS ---
