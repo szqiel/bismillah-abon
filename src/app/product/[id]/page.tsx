@@ -1,4 +1,5 @@
 import { inventory } from "@/lib/data";
+import { formatCurrency } from "@/lib/formatters";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import BookingForm from "./BookingForm";
@@ -70,14 +71,12 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
             {/* Price Box */}
             <div className="mt-6 border border-primary/40 bg-primary/10 rounded-xl p-4 flex items-center justify-center gap-6">
               <div className="flex items-baseline gap-1">
-                <span className="font-price-chip text-[12px] text-primary font-bold">Rp</span>
-                <span className="font-price-chip text-[28px] font-bold text-primary">{(item.price12h / 1000).toLocaleString('id-ID')}.000</span>
+                <span className="font-price-chip text-[28px] font-bold text-primary">{formatCurrency(item.price12h)}</span>
                 <span className="font-category-label text-[12px] text-primary/80 ml-1">/ 12H</span>
               </div>
               <div className="w-[1px] h-8 bg-primary/30"></div>
               <div className="flex items-baseline gap-1">
-                <span className="font-price-chip text-[12px] text-on-surface font-bold">Rp</span>
-                <span className="font-price-chip text-[28px] font-bold text-on-surface">{(item.price24h / 1000).toLocaleString('id-ID')}.000</span>
+                <span className="font-price-chip text-[28px] font-bold text-on-surface">{formatCurrency(item.price24h)}</span>
                 <span className="font-category-label text-[12px] text-on-surface-variant ml-1">/ 24H</span>
               </div>
             </div>

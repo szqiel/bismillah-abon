@@ -1,6 +1,7 @@
 import { ProductCard } from "@/components/ui/ProductCard";
 import { inventory } from "@/lib/data";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { siteConfig } from "@/config/site";
 import Link from "next/link";
 
 export default function Home() {
@@ -92,10 +93,10 @@ export default function Home() {
         <ScrollReveal className="relative z-10 max-w-4xl mx-auto text-center px-margin-page flex flex-col items-center">
           <span className="material-symbols-outlined text-[48px] text-primary mb-6">movie</span>
           <h2 className="font-display-xl text-headline-lg-mobile md:text-[64px] uppercase font-black text-on-surface leading-none mb-6">
-            Trusted by Semarang&apos;s<br/>Top Creators
+            Trusted by {siteConfig.city}&apos;s<br/>Top Creators
           </h2>
           <p className="font-body-md text-[18px] text-on-surface-variant max-w-2xl mx-auto mb-10">
-            Dari project mahasiswa hingga commercial shoot skala nasional. Kami memastikan alat yang Anda sewa dalam kondisi prima, terkalibrasi, dan siap tempur.
+            Dari project mahasiswa hingga commercial shoot skala nasional. Kami memastikan peralatan sewa di {siteConfig.city} selalu dalam kondisi prima, terkalibrasi, dan siap tempur.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
             <div className="flex flex-col items-center p-4 bg-surface-container/50 backdrop-blur border border-outline-variant rounded-lg w-32">

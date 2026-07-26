@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { GearItem } from "@/lib/data";
+import { formatCompactCurrency } from "@/lib/formatters";
 import Link from "next/link";
 
 export function ProductCard({ item }: { item: GearItem }) {
@@ -64,14 +65,14 @@ export function ProductCard({ item }: { item: GearItem }) {
             {/* Price Pill */}
             <div className="bg-surface-container text-on-surface rounded-full px-3 py-2 flex flex-wrap items-center gap-2 border border-outline-variant/50 flex-1">
               <span className="font-price-chip text-[16px] text-primary font-bold flex items-baseline gap-1">
-                {(item.price12h / 1000).toLocaleString("id-ID")}k
+                {formatCompactCurrency(item.price12h)}
                 <span className="text-[11px] text-on-surface-variant font-normal uppercase">
                   /12H
                 </span>
               </span>
               <div className="w-1 h-1 rounded-full bg-outline-variant hidden sm:block"></div>
               <span className="font-price-chip text-[14px] text-on-surface font-bold flex items-baseline gap-1">
-                {(item.price24h / 1000).toLocaleString("id-ID")}k
+                {formatCompactCurrency(item.price24h)}
                 <span className="text-[10px] text-on-surface-variant font-normal uppercase">
                   /24H
                 </span>

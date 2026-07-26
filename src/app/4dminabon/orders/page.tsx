@@ -53,8 +53,14 @@ export default function OrdersPage() {
   const [depositAmount, setDepositAmount] = useState(100000);
   const [notes, setNotes] = useState("");
 
-  // Simulated current reference date for "Today" (July 26, 2026)
-  const todayDateStr = "2026-07-26";
+  // Dynamic reference date for "Today" (real today or simulated mock date)
+  const todayDateStr = useMemo(() => {
+    const realToday = new Date().toISOString().split("T")[0];
+    const hasOrdersToday = orders.some(
+      (o) => o.startAt.startsWith(realToday) || o.dueAt.startsWith(realToday)
+    );
+    return hasOrdersToday ? realToday : "2026-07-26";
+  }, [orders]);
 
   // Tab Badge Counts
   const counts = useMemo(() => {
@@ -96,7 +102,7 @@ export default function OrdersPage() {
       overdueCount: counts.overdue,
       unpaidBalanceSum,
     };
-  }, [orders, counts.overdue]);
+  }, [orders, counts.overdue, todayDateStr]);
 
   // Filtered & Sorted Orders List
   const filteredOrders = useMemo(() => {
@@ -138,7 +144,7 @@ export default function OrdersPage() {
     });
 
     return result;
-  }, [orders, activeTab, quickFilter, searchQuery, sortDirection]);
+  }, [orders, activeTab, quickFilter, searchQuery, sortDirection, todayDateStr]);
 
   // Specific Conflict Details for New Order Modal
   const activeConflicts = useMemo(() => {

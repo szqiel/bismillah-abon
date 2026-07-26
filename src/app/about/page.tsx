@@ -8,19 +8,19 @@ export default function AboutPage() {
     {
       name: "Budi Santoso",
       role: "Filmmaker Independen",
-      text: "Gear dari Abon Kamera selalu dalam kondisi prima. Baterai penuh, sensor bersih, dan pelayanannya sangat cepat. Sangat direkomendasikan untuk produksi di Semarang!",
+      text: `Gear dari ${siteConfig.shortName} selalu dalam kondisi prima. Baterai penuh, sensor bersih, dan pelayanannya sangat cepat. Sangat direkomendasikan untuk produksi di ${siteConfig.city}!`,
       stars: 5,
     },
     {
       name: "Siska Saraswati",
       role: "Wedding Photographer",
-      text: "Sering banget dadakan butuh lensa tambahan untuk liputan wedding, dan Abon Kamera selalu bisa diandalkan. Adminnya responsif dan bisa booking via WhatsApp 24 jam.",
+      text: `Sering banget dadakan butuh lensa tambahan untuk liputan wedding, dan ${siteConfig.shortName} selalu bisa diandalkan. Adminnya responsif dan bisa booking via WhatsApp 24 jam.`,
       stars: 5,
     },
     {
       name: "Andi Pratama",
       role: "Content Creator",
-      text: "Pilihan gear-nya lengkap banget dari kamera, lensa, sampai lighting. Harga sewanya juga paling masuk akal di Semarang. Sukses terus Abon Kamera!",
+      text: `Pilihan gear-nya lengkap banget dari kamera, lensa, sampai lighting. Harga sewanya juga paling masuk akal di ${siteConfig.city}. Sukses terus ${siteConfig.shortName}!`,
       stars: 5,
     },
   ];
@@ -38,7 +38,7 @@ export default function AboutPage() {
           </h1>
           <p className="font-body-md text-[18px] md:text-[20px] text-on-surface-variant leading-relaxed">
             {siteConfig.description}. Kami hadir untuk mendukung kreativitas
-            para sineas, fotografer, dan content creator di Semarang dan
+            para sineas, fotografer, dan content creator di {siteConfig.city} dan
             sekitarnya. Dengan peralatan yang selalu terawat, kalibrasi presisi,
             dan ketersediaan 24 jam, kami memastikan setiap momen berharga Anda
             tererekam dengan sempurna.

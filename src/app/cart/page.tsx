@@ -4,6 +4,7 @@ import { useBookingStore } from "@/lib/store";
 import Link from "next/link";
 import { useState } from "react";
 import { generateWhatsAppMessage, CustomerData } from "@/lib/whatsapp";
+import { formatCurrency } from "@/lib/formatters";
 
 export default function CartPage() {
   const { items, removeItem, clearCart } = useBookingStore();
@@ -82,7 +83,7 @@ export default function CartPage() {
                       <span className="font-category-label text-[12px] uppercase text-on-surface-variant font-bold bg-surface-container px-2 py-1 rounded">Qty: {item.quantity}</span>
                     </div>
                     <div className="font-price-chip text-on-surface text-[20px] font-bold">
-                      Rp {(item.totalPrice / 1000).toLocaleString('id-ID')}K
+                      {formatCurrency(item.totalPrice)}
                     </div>
                   </div>
                 </div>
@@ -134,7 +135,7 @@ export default function CartPage() {
               <div className="flex justify-between items-end mb-6 pb-4 border-b-2 border-outline-variant/30">
                 <span className="font-category-label uppercase font-bold text-[14px]">Total Estimasi</span>
                 <span className="font-price-chip text-[32px] text-primary font-bold">
-                  Rp {(grandTotal / 1000).toLocaleString('id-ID')}K
+                  {formatCurrency(grandTotal)}
                 </span>
               </div>
               

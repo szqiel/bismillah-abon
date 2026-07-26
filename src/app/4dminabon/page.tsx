@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useAdminStore } from "@/lib/adminStore";
 import { StatusBadge } from "@/components/admin/StatusBadge";
 import { formatCurrency, formatDate } from "@/lib/formatters";
+import { siteConfig } from "@/config/site";
 
 export default function AdminDashboardPage() {
   const { orders, inventory, customers } = useAdminStore();
@@ -30,7 +31,7 @@ export default function AdminDashboardPage() {
             System Overview
           </h1>
           <p className="font-body-md text-[14px] text-on-surface-variant">
-            Statistik operasional langsung untuk Hub Peralatan Abon Kamera Semarang.
+            Statistik operasional langsung untuk Hub Peralatan {siteConfig.name} {siteConfig.city}.
           </p>
         </div>
         <div className="flex items-center gap-3">

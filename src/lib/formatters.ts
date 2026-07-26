@@ -1,7 +1,7 @@
-// Centralized formatting utilities for complete rebrandability
+import { siteConfig } from "@/config/site";
 
-export const CURRENCY_SYMBOL = "Rp";
-export const CURRENCY_CODE = "IDR";
+export const CURRENCY_SYMBOL = siteConfig.currencySymbol || "Rp";
+export const CURRENCY_CODE = siteConfig.currencyCode || "IDR";
 
 /**
  * Formats a numeric price into full currency format (e.g. 450000 -> "Rp 450.000")
