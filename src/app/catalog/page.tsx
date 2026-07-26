@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, Suspense } from "react";
 import { inventory } from "@/lib/data";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { useSearchParams } from "next/navigation";
 
-export default function CatalogPage() {
+function CatalogContent() {
   const searchParams = useSearchParams();
   const initialCategory = searchParams.get("category");
 
@@ -29,7 +29,7 @@ export default function CatalogPage() {
       const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(item.category);
       return brandMatch && categoryMatch;
     });
-  }, [selectedBrands, selectedCategories]);
+  }, [selectedBrands, selectedCategories, catalogInventory]);
 
   const toggleBrand = (brand: string) => {
     setSelectedBrands(prev => 
@@ -114,7 +114,7 @@ export default function CatalogPage() {
           {/* Category Header */}
           <ScrollReveal className="mb-8 pb-4 border-b-2 border-on-surface relative">
             <h1 className="font-display-xl text-headline-lg-mobile md:text-headline-lg uppercase text-on-surface">
-              {selectedCategories.length === 1 ? selectedCategories[0] : "ABON'S CATALOG"}
+              {selectedCategories.length === 1 ? selectedCategories[0] : "KATALOG PERALATAN"}
             </h1>
             <div className="absolute bottom-[-2px] left-0 w-24 h-0.5 bg-primary"></div>
           </ScrollReveal>
@@ -132,11 +132,23 @@ export default function CatalogPage() {
               ))}
             </div>
           )}
-          
-
         </section>
 
       </main>
     </div>
+  );
+}
+
+export default function CatalogPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-on-surface-variant font-category-label font-bold text-sm uppercase tracking-wider animate-pulse">
+          Memuat Katalog...
+        </div>
+      </div>
+    }>
+      <CatalogContent />
+    </Suspense>
   );
 }
