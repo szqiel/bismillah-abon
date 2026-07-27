@@ -61,7 +61,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
           {/* Right: Info & Booking */}
           <div className="lg:col-span-5 flex flex-col">
             
-            <h1 className="font-display-xl text-[40px] md:text-[48px] uppercase font-bold text-on-surface leading-none tracking-tight">
+            <h1 className="font-display-xl text-[24px] sm:text-[34px] md:text-[44px] uppercase font-bold text-on-surface leading-tight tracking-tight break-words">
               {item.name}
             </h1>
             <p className="font-body-md text-[14px] text-on-surface-variant mt-2">
@@ -69,14 +69,15 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
             </p>
             
             {/* Price Box */}
-            <div className="mt-6 border border-primary/40 bg-primary/10 rounded-xl p-4 flex items-center justify-center gap-6">
-              <div className="flex items-baseline gap-1">
-                <span className="font-price-chip text-[28px] font-bold text-primary">{formatCurrency(item.price12h)}</span>
+            <div className="mt-6 border border-primary/40 bg-primary/10 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
+              <div className="flex items-baseline gap-1.5 whitespace-nowrap">
+                <span className="font-price-chip text-[22px] sm:text-[28px] font-bold text-primary">{formatCurrency(item.price12h)}</span>
                 <span className="font-category-label text-[12px] text-primary/80 ml-1">/ 12H</span>
               </div>
-              <div className="w-[1px] h-8 bg-primary/30"></div>
-              <div className="flex items-baseline gap-1">
-                <span className="font-price-chip text-[28px] font-bold text-on-surface">{formatCurrency(item.price24h)}</span>
+              <div className="hidden sm:block w-[1px] h-8 bg-primary/30"></div>
+              <div className="w-full sm:w-auto h-[1px] sm:h-auto bg-primary/20 sm:hidden"></div>
+              <div className="flex items-baseline gap-1.5 whitespace-nowrap">
+                <span className="font-price-chip text-[22px] sm:text-[28px] font-bold text-on-surface">{formatCurrency(item.price24h)}</span>
                 <span className="font-category-label text-[12px] text-on-surface-variant ml-1">/ 24H</span>
               </div>
             </div>
